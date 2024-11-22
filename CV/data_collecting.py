@@ -54,7 +54,9 @@ def collect_data(label, output_file, camera_index=0):
         print("데이터가 비어 있습니다. 저장하지 않았습니다.")
 
 # 호출 시 camera_index를 설정
-collect_data("fist", "fist_data.npy", camera_index=1)  # 주먹 제스처 (두 번째 카메라 사용)
-collect_data("open_hand", "open_hand_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)
-collect_data("index_finger", "index_finger_data.npy", camera_index=1)  # 검지 손가락을 펴는 제스처 (두 번째 카메라 사용)
-collect_data("two_finger", "two_finger_data.npy", camera_index=1)  # 검지와 중지 손가락을 펴는 제스처 (두 번째 카메라 사용)
+#collect_data("fist", "fist_data.npy", camera_index=1)  # 주먹 제스처 (두 번째 카메라 사용)
+#collect_data("open_hand", "open_hand_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)
+#collect_data("index_finger", "index_finger_data.npy", camera_index=1)  # 검지 손가락을 펴는 제스처 (두 번째 카메라 사용)
+# collect_data("two_finger", "two_finger_data.npy", camera_index=1)  # 검지와 중지 손가락을 펴는 제스처 (두 번째 카메라 사용)
+#collect_data("call_sign", "call_sign_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)
+collect_data("music_sign", "music_sign_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)

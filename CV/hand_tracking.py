@@ -13,13 +13,15 @@ hands = mp_hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5
 # 모델 로드
 model = joblib.load("gesture_model.pkl")
 
-# 음악 상태
+# 기능 상태
 music_on = False
+aircon_on=False
+calling=False
 last_music_on_state = False  # 이전 음악 상태 추적
 
 # 제스처 감지
 def detect_gesture():
-    global music_on, last_music_on_state
+    global music_on, last_music_on_state, aircon_on, calling
     cap = cv2.VideoCapture(1)  # 두 번째 카메라 사용
     last_gesture_time = 0  # 마지막 제스처 인식 시간
     gesture_delay = 1.5  # 제스처 인식 간격 (3초)
@@ -52,24 +54,40 @@ def detect_gesture():
                 if current_time - last_gesture_time > gesture_delay:
                     last_gesture_time = current_time  # 마지막 제스처 인식 시간 갱신
                     
-                    # 동작 수행
-                    if gesture == "fist":  # 주먹 쥐면 노래 정지
-                        if music_on:  # 음악이 켜져 있으면 끔
-                            music_on = False
-                            print("음악 OFF")
+                    #동작 수행
+                    if gesture == "fist":  # 주먹 쥐면 에어컨, 음악 전환
+                        print("fist")
+                        # if mode==1:  
+                        #     print("에어컨 ON")
+                        # else:
+                        #     print("에어컨 OFF")
+                        
                             
-                    elif gesture == "open_hand":  # 손을 핀 상태는 노래 재생
+                    if gesture == "open_hand":  # 손을 핀 상태는 노래 재생
                         if not music_on:  # 음악이 꺼져 있으면 켬
                             music_on = True
                             print("음악 ON")
+                        else: 
+                            music_on=False
+                            print("음악 OFF")
 
                     elif gesture == "index_finger":  # 검지 손가락은 다음 곡으로 넘어감
                         if music_on:
                             print("다음 곡으로 넘어감!")
 
-                    elif gesture == "two_finger":  # 검지 손가락은 다음 곡으로 넘어감
+                    elif gesture == "two_finger":  # 
                         if music_on:
                             print("이전 곡으로 넘어감!")
+
+                    elif gesture == "call_sign":  # 
+                        print("전화기능")
+                        # if calling:
+                        #     print("전화 받기")
+                        # else:
+                        #     print("전화 끊기")
+
+                    elif gesture == "music_sign":  # 
+                        print("음악")
 
         cv2.imshow("Gesture Detection", frame)
         
