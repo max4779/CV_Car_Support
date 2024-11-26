@@ -11,7 +11,7 @@ mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5)
 
 # 모델 로드
-model = joblib.load("gesture_model.pkl")
+model = joblib.load("model/gesture_model.pkl")
 
 # 기능 상태
 music_on = False
@@ -22,7 +22,7 @@ last_music_on_state = False  # 이전 음악 상태 추적
 # 제스처 감지
 def detect_gesture():
     global music_on, last_music_on_state, aircon_on, calling
-    cap = cv2.VideoCapture(1)  # 두 번째 카메라 사용
+    cap = cv2.VideoCapture(1)  # 두 번째 카메라 사용 이거는 외부 웹캠에 연결하는 것이라서 내부 카메라 사용을 원하면 0으로
     last_gesture_time = 0  # 마지막 제스처 인식 시간
     gesture_delay = 1.5  # 제스처 인식 간격 (3초)
 

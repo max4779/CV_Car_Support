@@ -5,12 +5,12 @@ import numpy as np
 import joblib
 
 # 데이터 로드
-fist_data = np.load("fist_data.npy", allow_pickle=True)
-open_hand_data = np.load("open_hand_data.npy", allow_pickle=True)
-index_finger_data = np.load("index_finger_data.npy", allow_pickle=True)
-two_finger_data = np.load("two_finger_data.npy", allow_pickle=True)
-call_sign_data = np.load("call_sign_data.npy", allow_pickle=True)
-music_sign_data = np.load("music_sign_data.npy", allow_pickle=True)
+fist_data = np.load("data/fist_data.npy", allow_pickle=True)
+open_hand_data = np.load("data/open_hand_data.npy", allow_pickle=True)
+index_finger_data = np.load("data/index_finger_data.npy", allow_pickle=True)
+two_finger_data = np.load("data/two_finger_data.npy", allow_pickle=True)
+call_sign_data = np.load("data/call_sign_data.npy", allow_pickle=True)
+music_sign_data = np.load("data/music_sign_data.npy", allow_pickle=True)
 
 # 데이터 결합
 data = np.concatenate((fist_data, open_hand_data, index_finger_data, two_finger_data, call_sign_data, music_sign_data), axis=0)

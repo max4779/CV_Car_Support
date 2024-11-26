@@ -59,4 +59,4 @@ def collect_data(label, output_file, camera_index=0):
 #collect_data("index_finger", "index_finger_data.npy", camera_index=1)  # 검지 손가락을 펴는 제스처 (두 번째 카메라 사용)
 # collect_data("two_finger", "two_finger_data.npy", camera_index=1)  # 검지와 중지 손가락을 펴는 제스처 (두 번째 카메라 사용)
 #collect_data("call_sign", "call_sign_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)
-collect_data("music_sign", "music_sign_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)
+collect_data("music_sign", "data/music_sign_data.npy", camera_index=1)  # 손을 핀 상태 제스처 (두 번째 카메라 사용)
