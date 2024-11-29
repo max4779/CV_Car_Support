@@ -54,40 +54,55 @@ def detect_gesture():
                 if current_time - last_gesture_time > gesture_delay:
                     last_gesture_time = current_time  # 마지막 제스처 인식 시간 갱신
                     
-                    #동작 수행
-                    if gesture == "fist":  # 주먹 쥐면 에어컨, 음악 전환
-                        print("fist")
-                        # if mode==1:  
-                        #     print("에어컨 ON")
-                        # else:
-                        #     print("에어컨 OFF")
+                    # 주먹은 사용X
+                    # if gesture == "fist":
+                    #     print("fist")
+                    #     if not aircon_on: 
+                    #         aircon_on=True
+                    #         print("에어컨 ON")
+                    #     else:
+                    #         aircon_on=False
+                    #         print("에어컨 OFF")
                         
                             
                     if gesture == "open_hand":  # 손을 핀 상태는 노래 재생
+                        if not aircon_on: 
+                            aircon_on=True
+                            print("에어컨 ON")
+                        else:
+                            aircon_on=False
+                            print("에어컨 OFF")
+                        
+
+                    elif gesture == "index_finger":  # 검지 손가락은 다음 곡으로 넘어감
+                        if music_on:
+                            print("다음 곡으로 넘어감!")
+                        elif aircon_on:
+                            print("온도 낮춤")
+                        
+
+                    elif gesture == "two_finger":  # 
+                        if music_on:
+                            print("이전 곡으로 넘어감!")
+                        elif aircon_on:
+                            print("온도 높임")
+                        
+
+                    elif gesture == "call_sign":  # 
+                        if not calling:
+                            calling = True
+                            print("전화 받기")
+                        else: 
+                            calling=False
+                            print("전화 끊기")
+
+                    elif gesture == "music_sign":  # 
                         if not music_on:  # 음악이 꺼져 있으면 켬
                             music_on = True
                             print("음악 ON")
                         else: 
                             music_on=False
                             print("음악 OFF")
-
-                    elif gesture == "index_finger":  # 검지 손가락은 다음 곡으로 넘어감
-                        if music_on:
-                            print("다음 곡으로 넘어감!")
-
-                    elif gesture == "two_finger":  # 
-                        if music_on:
-                            print("이전 곡으로 넘어감!")
-
-                    elif gesture == "call_sign":  # 
-                        print("전화기능")
-                        # if calling:
-                        #     print("전화 받기")
-                        # else:
-                        #     print("전화 끊기")
-
-                    elif gesture == "music_sign":  # 
-                        print("음악")
 
         cv2.imshow("Gesture Detection", frame)
         
